@@ -1,0 +1,1255 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Assignment Netwerkanalyse"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Notebook made by\n",
+    "\n",
+    "__Name__: \n",
+    "\n",
+    "__Student id__ : "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Toelichting\n",
+    "\n",
+    "* De meeste opgaven worden automatisch nagekeken. Bij vrijwel alle opdrachten staan er een paar tests onder de opdracht, dit is voornamelijk om te zorgen dat je de juiste type output geeft.\n",
+    "\n",
+    "## Voor het inleveren!\n",
+    "\n",
+    "* Zorg dat de file de volgende naam heeft: STUDENTNUMMER_AssignmentWeekX.ipynb, waar vanzelfsprekend \"STUDENTNUMMER\" jouw studentnummer is en de X de week (dus 1,2,3,5,6 of 7)\n",
+    "\n",
+    "* Zorg dat de code goed runt van boven naar beneden, verifieer dat door boven in Kernel -> Restart & Run All uit te voeren"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "4eddd8795f2cf05755727bf9661d3279",
+     "grade": false,
+     "grade_id": "cell-2f53b0d44f5944c8",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "# Week 1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "35d1efa9385f2102e9083a79bd1aaa0d",
+     "grade": false,
+     "grade_id": "cell-57401e015f004af7",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "# Deel 1: Programmeren\n",
+    "\n",
+    "Voor deze opdrachten maken we gebruik van Networkx, de documentatie daarvan is te vinden via deze link."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "0208269fdbb38b14c42d0527fa1dde64",
+     "grade": false,
+     "grade_id": "cell-a6202143af23bfa6",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "%matplotlib inline\n",
+    "import networkx as nx\n",
+    "import matplotlib.pyplot as plt\n",
+    "import numpy as np\n",
+    "import scipy\n",
+    "from nose.tools import assert_equal\n",
+    "from numpy.testing import assert_almost_equal"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "3c8fba71ef1a53c62aa263430b6c7a38",
+     "grade": false,
+     "grade_id": "cell-48f4ba3545c0d50b",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 1\n",
+    "<p>Maak een networkx ongerichte graaf `G` met de volgende edges:</p>\n",
+    "<center>\n",
+    "    V = {1, 2, 3, 4, 5} en \n",
+    "    E = { (1, 2) , (1, 4) , (2, 3) , (2, 4) , (2, 5) , (3, 4) , (3, 5) }\n",
+    "</center>\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "6b5e522d99a58841ed4d16904985585a",
+     "grade": false,
+     "grade_id": "Vraag1",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "G = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "6a0d844f53aacf53578bd8bc30979715",
+     "grade": true,
+     "grade_id": "Vraag1_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "assert_equal(nx.is_directed(G), False)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "61f0f169a890efd447312ca7cb2d09bb",
+     "grade": false,
+     "grade_id": "cell-af905db2c0399b45",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 2\n",
+    "Maak een dictionary genaamd `neighborDict` met als key een node en als value een lijst van de neighbor set.\n",
+    "\n",
+    "Bijvoorbeeld: `neighborDict[5] = [2, 3]`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "552083188602cbd726c7a46bc353d59d",
+     "grade": false,
+     "grade_id": "Vraag2",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "neighborDict = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "280d3810355349d6e78f77289d2588c6",
+     "grade": true,
+     "grade_id": "Vraag2_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(neighborDict), dict)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "f3f8b575bb46367c654ba1ff4e0f2827",
+     "grade": false,
+     "grade_id": "cell-397906d371adcacc",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 3\n",
+    "Hoeveel lijnen moet je toevoegen om van `G` een volledige (clique) graaf van te maken? Noem deze variabele `n` en zorg dat het een integer is."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "99a903f942591bf3230e6a59849381f0",
+     "grade": false,
+     "grade_id": "Vraag3",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "n = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "04e612f357271996bf0d51c62c5dda25",
+     "grade": true,
+     "grade_id": "Vraag3_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(n), int)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "70d2fc1abebb001cde8aaa93904c56fb",
+     "grade": false,
+     "grade_id": "cell-d87520b5c6b1fcf7",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 4\n",
+    "Maak een dictionary genaamd `degreeDict` met als key een node en als value de degree van die node.\n",
+    "\n",
+    "Zie: https://en.wikipedia.org/wiki/Degree_(graph_theory)\n",
+    "\n",
+    "Voorbeeld: `{1: 2, 2: 4...}`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "31aa2b6374cb64f935f207f053c3e314",
+     "grade": false,
+     "grade_id": "Vraag4",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "degreeDict = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "3d10dd5b7e24e40d46fc2203642ceb74",
+     "grade": true,
+     "grade_id": "Vraag4_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(degreeDict), dict)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "3afa2aab9d94490eb1f2f1732618a312",
+     "grade": false,
+     "grade_id": "cell-758bd776f998402a",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 5\n",
+    "Teken de subgraven geinduceerd door {1,2,3} en {2,5,3} en {5,4} en geef deze graven de namen respectievelijk `I`, `J` en `K`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "cc8266dcae3a13809a6489cd986f9577",
+     "grade": false,
+     "grade_id": "Vraag5",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "I = None\n",
+    "J = None\n",
+    "K = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "03e63fd48196a87e8c99ec6a15cfb085",
+     "grade": true,
+     "grade_id": "Vraag5_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(sorted(list(I.nodes())), [1, 2, 3])\n",
+    "assert_equal(sorted(list(J.nodes())), [2, 3, 5])\n",
+    "assert_equal(sorted(list(K.nodes())), [4, 5])\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "dc333aa4eb4619b3ef8410a22fbf3011",
+     "grade": false,
+     "grade_id": "cell-d4a2702cbe026966",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 6\n",
+    "Maak de adjency matrix van dit netwerk in de vorm:\n",
+    "    <pre>\n",
+    "        1 2 3 4 5\n",
+    "      1 0 1 0 1 0\n",
+    "      2\n",
+    "      3\n",
+    "      4\n",
+    "      5\n",
+    "    </pre>\n",
+    "    \n",
+    "Geef dit terug als een numpy array met daarin integers. Noem deze `adj_matrix`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "ba2fdccc623732c7ddf421c6ae93afa0",
+     "grade": false,
+     "grade_id": "Vraag6",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "adj_matrix = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "9cd70f8932d065d1e4ffbef1408964dd",
+     "grade": true,
+     "grade_id": "Vraag6_test",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "\n",
+    "assert_equal(type(adj_matrix), np.ndarray)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "aec50145fce7a4fad73858e1c87d991d",
+     "grade": false,
+     "grade_id": "cell-ea817e773856ec4d",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 7\n",
+    "Maak een lijst van lijsten met de lengte van de kortste paden tussen knopen\n",
+    "    <pre>\n",
+    "    1 2 3 4 5\n",
+    "  1   1 2 1 2 \n",
+    "  2\n",
+    "  3\n",
+    "  4\n",
+    "  5\n",
+    "</pre>\n",
+    "\n",
+    "Noem deze `shortest_path_matrix`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "15691d7f816cbd3ec91f7687cf6c4c2a",
+     "grade": false,
+     "grade_id": "Vraag7",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "shortest_path_matrix = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "94cbbabf44fb9cbcec6245701bff6f1c",
+     "grade": true,
+     "grade_id": "Vraag7_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(shortest_path_matrix), list)\n",
+    "assert_equal(type(shortest_path_matrix[0]), list)\n",
+    "assert_equal(type(shortest_path_matrix[0][0]), int)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "4d58a2215d83a1afce0f3a7d8bcdb61e",
+     "grade": false,
+     "grade_id": "cell-00cc4a9280ec5be9",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 8\n",
+    "Wat is/zijn de minimale vertex cut(s)? Geef een set genaamd `min_cut`\n",
+    "\n",
+    "Zie: https://en.wikipedia.org/wiki/Vertex_separator"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "d631c52baa27a2523ed023885d72751c",
+     "grade": false,
+     "grade_id": "Vraag8",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "min_cut = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "c484f301af6e906f103fbab16e1c9b18",
+     "grade": true,
+     "grade_id": "Vraag8_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(min_cut), set)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "db8e5fddc5e5c92e3d97f55e1d3d8447",
+     "grade": false,
+     "grade_id": "cell-23f93a9ce0eea1e6",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 9\n",
+    "Maak een dictionary genaamd `eccentricyDict` met als key een knoop en als value de bijbehorende eccentricy.\n",
+    "\n",
+    "Zie https://en.wikipedia.org/wiki/Distance_(graph_theory)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "ae4ddeea6e90910956a99f742b00a4e3",
+     "grade": false,
+     "grade_id": "Vraag9",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "eccentricyDict = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "57753cca6a4d93e3397f857ea77e139d",
+     "grade": true,
+     "grade_id": "Vraag9_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(eccentricyDict), dict)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "a9aeaf09c7d0f1efe29d2dbae77d802e",
+     "grade": false,
+     "grade_id": "cell-d9169bf0e112753e",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 10\n",
+    "Wat is de radius van de graaf en wat is de diameter. Noem deze respectievelijk `radius` en `diameter`.\n",
+    "\n",
+    "Zie https://en.wikipedia.org/wiki/Distance_(graph_theory)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "e23bcee642337c25b2b58e5162b52e76",
+     "grade": false,
+     "grade_id": "Vraag10",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "radius = None\n",
+    "diameter = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "55622c55a6b44e456a5760e31ca54b55",
+     "grade": true,
+     "grade_id": "Vraag10_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(radius), int)\n",
+    "assert_equal(type(diameter), int)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Vraag 11\n",
+    "Bereken de average path length. Noem dit `avg_path_len`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "fde933b49cdfa7472343eb5da80c66a9",
+     "grade": false,
+     "grade_id": "Vraag11",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "avg_path_len = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "79bdaff2340fd87bf3bc87bc9a55852d",
+     "grade": true,
+     "grade_id": "Vraag11_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(avg_path_len), float)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "5ce93a0b0a23c508a746edda2d418a88",
+     "grade": false,
+     "grade_id": "cell-189ac900f8132c1b",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "M = nx.Graph()\n",
+    "M.add_nodes_from(['A', 'B', 'C', 'D', 'E', 'F'])\n",
+    "M.add_edges_from([('A', 'D'), ('A', 'C'), ('A','B'), ('A','E'), ('A','F'), ('C', 'D'), ('B', 'D'), ('E', 'F')])\n",
+    "nx.draw(M, with_labels = True)\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "2d5bf06dcdaab8c93ac3600671b6a3bd",
+     "grade": false,
+     "grade_id": "cell-79ed1c4168492243",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 12\n",
+    "Maak een functie `gatekeeper(Graph, source, target)` die teruggeeft welke knopen fungeren als gatekeeper voor deze twee knopen.\n",
+    "Geef dit terug als een set, ook als er geen knopen inzitten.\n",
+    "\n",
+    "TIP: Gebruik de functie`nx.all_simple_paths`\n",
+    "\n",
+    "Gebruik geen grote graven voor het testen, dat duurt enorm lang"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "6636625dff4c1de2be77c33f4b1a70a4",
+     "grade": false,
+     "grade_id": "Vraag12",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def gatekeeper(Graph, source, target):\n",
+    "    # YOUR CODE HERE\n",
+    "    raise NotImplementedError()\n",
+    "gatekeeper(M, 'F', 'D')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "a14af42d637d0557ed34a5947776bea7",
+     "grade": true,
+     "grade_id": "Vraag12_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "assert_equal(type(gatekeeper(M, 'F', 'D')), set)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "4fe661ea4d36fd4a61bc9ef227390749",
+     "grade": false,
+     "grade_id": "cell-72c0e496d77968c3",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "# Deel 2: Easley and Kleinberg\n",
+    "Deze opdrachten hoeven niet geprogrammeerd worden. Wel moet bij soms het antwoord worden gegeven in de vorm van`y = -1`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "50da2590b5a4dbc3e2d64886b7ac1448",
+     "grade": false,
+     "grade_id": "cell-19f12e78d4308731",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 13\n",
+    "Maak opdracht [8.4.2a van Easley and Kleinberg](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch08.pdf), maar dan geprogrammeerd. \n",
+    "\n",
+    "* Maak een Networkx graph `traffic_graph` voor het tekenen van de graph.\n",
+    "\n",
+    "* Maak daarnaast een functie `travel_time(edge, x)` die gegeven een directe weg en het aantal reizigers op die weg teruggeeft hoeveel minuten travel time deze weg is. Noem de knoop tussen de twee wegen op route I `C` en die op route II `D`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "5cf3502de809bb628244a20352adbace",
+     "grade": false,
+     "grade_id": "Vraag13",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "traffic_graph = None\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()\n",
+    "\n",
+    "def travel_time(edge, x):\n",
+    "    # YOUR CODE HERE\n",
+    "    raise NotImplementedError()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "6c3c47058eb6120b8faf3dd4c6e68633",
+     "grade": true,
+     "grade_id": "Vraag13_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "assert_equal(nx.is_directed(traffic_graph), True)\n",
+    "assert_equal(travel_time(('A', 'C'), 10), 60)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "0ee7a7629e930313adb8e81bf1421504",
+     "grade": false,
+     "grade_id": "cell-59c5f4205c2b2b70",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 14\n",
+    "Maak opdracht [8.4.2b van Easley and Kleinberg](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch08.pdf). Geef het antwoord in onderstaande cell als variabele `a`. Dit hoeft niet geprogrammeerd te worden!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "7c552d12f0ad2961c1764bef48e30235",
+     "grade": false,
+     "grade_id": "Vraag14",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "a = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "0fb43bdb90a3ecc5492458d223d16197",
+     "grade": true,
+     "grade_id": "Vraag14_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(a), int)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "7466348b7679bcf62acbeb03a030b259",
+     "grade": false,
+     "grade_id": "cell-b0c8396a6e22c576",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 15\n",
+    "Maak opdracht [8.4.2c van Easley and Kleinberg](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch08.pdf). Geef het antwoord als variabele `b`. Dit hoeft niet geprogrammeerd te worden!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "75e3fe0c0e06c717ff4a5c4a5551c73c",
+     "grade": false,
+     "grade_id": "Vraag15",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "b = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "c0b0983325f0af32288b441f4e7c5ff6",
+     "grade": true,
+     "grade_id": "Vraag15_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(b), int)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "7d4b6b07ce02f941536d36b09e9638cf",
+     "grade": false,
+     "grade_id": "cell-e28f81aeb501fbda",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 16\n",
+    "Maak opdracht [8.4.2d van Easley and Kleinberg](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch08.pdf). Geef het antwoord als variabele `total_travel_time`. Dit hoeft niet geprogrammeerd te worden!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "f262062167e5dedfc41d0b17fd35664f",
+     "grade": false,
+     "grade_id": "Vraag16",
+     "locked": false,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "total_travel_time = None\n",
+    "\n",
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "39019746282571d08ea06c4dc6fbaf84",
+     "grade": true,
+     "grade_id": "Vraag16_antwoord",
+     "locked": true,
+     "points": 1,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## Verwijder dit veld niet i.v.m. nakijken\n",
+    "assert_equal(type(total_travel_time), int)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "checksum": "5bef656a248ecb99f4eae8808e649b68",
+     "grade": false,
+     "grade_id": "cell-8129f1715e2cc5a5",
+     "locked": true,
+     "schema_version": 1,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Vraag 17\n",
+    "Maak opdracht [8.4.2e van Easley and Kleinberg](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch08.pdf). Geef het antwoord in onderstaande cell"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "checksum": "a34a7da7af22c787501dd9734c133df6",
+     "grade": true,
+     "grade_id": "Vraag17",
+     "locked": false,
+     "points": 1,
+     "schema_version": 1,
+     "solution": true
+    }
+   },
+   "source": [
+    "YOUR ANSWER HERE"
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 1
+}
